@@ -1,12 +1,12 @@
 package co.com.fabricaescuela.vivemedellin.gestiondeusuarios.interactions;
 
-import co.com.fabricaescuela.vivemedellin.gestiondeusuarios.userinterfaces.Registration;
+
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
-import org.openqa.selenium.Keys;
+
 
 import static co.com.fabricaescuela.vivemedellin.gestiondeusuarios.userinterfaces.Registration.*;
 
@@ -29,6 +29,7 @@ public class RegistrationInteraction implements Interaction {
     }
 
     public static RegistrationInteraction registration() {
+
         return Tasks.instrumented(RegistrationInteraction.class);
     }
 }

@@ -41,4 +41,7 @@
         public static final Target REGISTRATION_BUTTON = Target.the("REGISTRATION BUTTON")
                 .located(By.id("registration-button"));
 
+        public static final Target SUCCESS_REGISTRATION_MESSAGE = Target.the("SUCCESS REGISTRATION MESSAGE")
+                .located(By.id("success-registration-message"));
+
     }

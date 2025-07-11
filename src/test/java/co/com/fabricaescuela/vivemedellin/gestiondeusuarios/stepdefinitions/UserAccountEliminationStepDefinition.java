@@ -1,5 +1,8 @@
 package co.com.fabricaescuela.vivemedellin.gestiondeusuarios.stepdefinitions;
 
+import co.com.fabricaescuela.vivemedellin.gestiondeusuarios.questions.SuccessAccountElimination;
+import co.com.fabricaescuela.vivemedellin.gestiondeusuarios.tasks.UserAccountElimination;
+import co.com.fabricaescuela.vivemedellin.gestiondeusuarios.tasks.UserLogin;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,6 +13,9 @@ import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import org.openqa.selenium.WebDriver;
+
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static org.hamcrest.Matchers.containsString;
 
 public class UserAccountEliminationStepDefinition {
 
@@ -26,17 +32,18 @@ public class UserAccountEliminationStepDefinition {
     }
 
     @Given("que estoy autenticado en el sistema")
-    public void imAuthenticated() {
-        //todo task
+    public void imAuthenticatedIn() {
+        user.attemptsTo(UserLogin.login());
     }
 
-    @When("hago clic en el enlace de verificación con un token válido")
-    public void  iClicTheLink(){
-        //todo task
+    @When("solicito la eliminación de mi perfil y confirmo la acción")
+    public void  iRequestTheElimination(){
+        user.attemptsTo(UserAccountElimination.accountElimination());
     }
 
-    @Then("el sistema confirma la verificación y activa mi cuenta")
-    public void TheSystemConfirmTheVerification(){
-        //todo question
+    @Then("el sistema elimina mi perfil y me muestra un mensaje de confirmación")
+    public void TheSystemDeleteMyAccount(){
+        user.should(seeThat(SuccessAccountElimination.successElimination(),
+                containsString("Cuenta eliminada con exito")));
     }
 }

@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
-import org.openqa.selenium.Keys;
+
 
 import static co.com.fabricaescuela.vivemedellin.gestiondeusuarios.userinterfaces.Login.*;
 
@@ -19,6 +19,7 @@ public class LoginInteraction implements Interaction {
     }
 
     public static LoginInteraction login() {
+
         return Tasks.instrumented(LoginInteraction.class);
     }
 }

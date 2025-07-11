@@ -1,5 +1,6 @@
 package co.com.fabricaescuela.vivemedellin.gestiondeusuarios.stepdefinitions;
 
+import co.com.fabricaescuela.vivemedellin.gestiondeusuarios.questions.SuccessfullRegistration;
 import co.com.fabricaescuela.vivemedellin.gestiondeusuarios.tasks.UserRegistration;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -12,6 +13,10 @@ import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import org.openqa.selenium.WebDriver;
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static org.hamcrest.Matchers.*;
+
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
 public class UserRegistrationStepDefinition {
 
@@ -27,7 +32,7 @@ public class UserRegistrationStepDefinition {
         user.can(BrowseTheWeb.with(driver));
     }
 
-    @Given("que estoy en la página de registro del sistema")
+    @Given("que estoy en la pagina de registro del sistema")
     public void imInTheRegistrationPage() {
         user.attemptsTo(Open.url("http://localhost:???/registration"));
     }
@@ -39,6 +44,7 @@ public class UserRegistrationStepDefinition {
 
     @Then("el sistema crea la cuenta y muestra un mensaje de confirmación")
     public void successfullyRegistration(){
-        //todo question
+        user.should((seeThat(SuccessfullRegistration.successRe(),containsString("cuenta creada"))));
     }
+
 }

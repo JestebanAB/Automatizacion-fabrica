@@ -6,12 +6,10 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 
 public class UserLogin implements Task {
-    private UserLogin(){}
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(LoginInteraction.login());
-
     }
 
     public static UserLogin login(){

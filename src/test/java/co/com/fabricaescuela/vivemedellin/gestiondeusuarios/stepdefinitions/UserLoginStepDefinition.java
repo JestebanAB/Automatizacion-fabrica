@@ -1,5 +1,6 @@
 package co.com.fabricaescuela.vivemedellin.gestiondeusuarios.stepdefinitions;
 
+import co.com.fabricaescuela.vivemedellin.gestiondeusuarios.questions.SuccessfulLogin;
 import co.com.fabricaescuela.vivemedellin.gestiondeusuarios.tasks.UserLogin;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -12,6 +13,9 @@ import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import org.openqa.selenium.WebDriver;
+
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static org.hamcrest.Matchers.containsString;
 
 public class UserLoginStepDefinition {
 
@@ -40,6 +44,6 @@ public class UserLoginStepDefinition {
 
     @Then("accedo exitosamente al sistema y se muestra la pagina principal")
     public void successfullyAccessed(){
-        //todo question
+        user.should(seeThat(SuccessfulLogin.success(), containsString("inicio de sesión exitoso")));
     }
 }

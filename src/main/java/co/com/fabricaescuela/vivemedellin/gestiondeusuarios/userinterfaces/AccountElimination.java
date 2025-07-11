@@ -15,4 +15,7 @@ public class    AccountElimination {
 
     public static final Target CONFIRM_ELIMINATION_BUTTON = Target.the("CONFIRM ELIMINATION BUTTON")
             .located(By.id("confirm-elimination-button"));
+
+    public static final Target SUCCESS_ELIMINATION = Target.the("SUCCESS ELIMINATION")
+            .located(By.id("success-elimination"));
 }

@@ -12,4 +12,8 @@ public class Login {
 
     public static final Target LOGIN_BUTTON = Target.the("Login button")
             .located(By.id("login-button"));
+
+    public static final Target SUCCESS_LOGIN_MESSAGE = Target.the("SUCCESS LOGIN MESSAGE")
+            .located(By.id("success-login-message"));
+
 }
